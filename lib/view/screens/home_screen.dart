@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:travel/utils/constants.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -56,13 +57,13 @@ class HomeScreen extends StatelessWidget {
                   )
                 ],
               ),
-              SizedBox(height: size.height * 0.02),
+              SizedBox(height: size.height * 0.04),
               Container(
                 width: size.width * 0.9,
                 height: size.height * 0.073,
                 decoration: BoxDecoration(
                   color: Colors.blue.withOpacity(0.3),
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(12),
                 ),
                 child: Center(
                   child: Padding(
@@ -81,12 +82,49 @@ class HomeScreen extends StatelessWidget {
                         ),
                         prefixIcon: Icon(
                           Icons.search,
-                          size: 25,
-                          color: Colors.black,
+                          size: size.width * 0.07,
+                          color: Colors.black54,
                         ),
                       ),
                     ),
                   ),
+                ),
+              ),
+              SizedBox(height: size.height * 0.035),
+              SizedBox(
+                height: size.height * 0.08,
+                child: ListView.builder(
+                  physics: const BouncingScrollPhysics(),
+                  scrollDirection: Axis.horizontal,
+                  shrinkWrap: true,
+                  itemCount: iconImages.length,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding:
+                          EdgeInsets.symmetric(horizontal: size.width * 0.03),
+                      child: Card(
+                        elevation: 4,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Container(
+                            height: size.height * 0.068,
+                            width: size.width * 0.14,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                color: Colors.blue),
+                            child: Center(
+                              child: Image(
+                                color: Colors.white,
+                                height: size.height * 0.04,
+                                image: AssetImage(
+                                  iconImages[index],
+                                ),
+                              ),
+                            )),
+                      ),
+                    );
+                  },
                 ),
               ),
             ],
